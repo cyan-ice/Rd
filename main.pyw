@@ -11,8 +11,10 @@ import core
 
 s = settings.Settings()
 
-
-logging.basicConfig(filename='runtime.log', filemode='w', format='[%(levelname)s] %(message)s', level=logging.WARNING)
+logging.basicConfig(filename='runtime.log',
+                    filemode='w',
+                    format='[%(levelname)s] %(message)s',
+                    level=logging.WARNING)
 if s.debug:
     logging.getLogger().setLevel(logging.DEBUG)
     logging.debug('Debugging mode enabled')
@@ -29,9 +31,12 @@ label = tk.Label(window, text=s.copyright, font=("Arial", 8))
 c = core.Core(s)
 c.label = label
 
-button = tk.Button(window, text="Random Choice", command=lambda: next(c.rc),
+button = tk.Button(window,
+                   text="Random Choice",
+                   command=lambda: next(c.rc),
                    font=("Arial", 12),
-                   relief="ridge", bd=3)
+                   relief="ridge",
+                   bd=3)
 button.place(relx=0.5, rely=0.3, anchor='center')
 label.place(relx=0.5, rely=0.7, anchor='center')
 window.mainloop()

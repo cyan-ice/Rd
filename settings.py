@@ -2,13 +2,16 @@ import sys
 import tkinter.messagebox as mes
 import json
 
+
 class Settings:
+
     def __init__(self):
         try:
             with open('settings.json') as f:
                 settings = json.load(f)
         except FileNotFoundError:
-            mes.showerror('Error', 'settings.json not found, using default settings')
+            mes.showerror('Error',
+                          'settings.json not found, using default settings')
             settings = {}
         except json.JSONDecodeError:
             mes.showerror('Error', 'Invalid settings.json: JSON decode error')
