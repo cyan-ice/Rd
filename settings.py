@@ -17,7 +17,7 @@ class Settings:
         # Set default values
         settings.setdefault('geometry', '210x100')
         settings.setdefault('n', 35)
-        settings.setdefault('rec', 0.5)
+        settings.setdefault('rec', 0)
         settings.setdefault('debug', False)
         settings.setdefault('exception', [])
 

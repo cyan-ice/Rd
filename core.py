@@ -16,9 +16,13 @@ class Core:
         Then the results would be more mixed together, rather than chunks of 35 (for example) pieced together
         '''
         n = dict(zip(set(range(1, self.settings.n + 1)) - set(self.settings.exception), itertools.repeat(1)))
+        init = n.copy()
         logging.debug(f'Setting n')
         while True:
             t = sum(n)
+            if t < 1e-9:
+                t = init.copy()
+                continue
             for p in n:
                 n[p] /= t
             yield (p := random.choices(list(n), list(n.values()))[0])
