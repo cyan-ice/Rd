@@ -23,7 +23,7 @@ class Core:
         init = n.copy()
         logging.debug(f'Setting n')
         while True:
-            t = sum(n)
+            t = sum(n.values())
             if t < 1e-9:
                 t = init.copy()
                 continue
